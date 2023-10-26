@@ -1,2 +1,0 @@
-com/vmware/osis/Application.java
- com.vmware.osis.Application

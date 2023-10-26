@@ -1,2 +1,0 @@
-com/vmware/osis/resource/OsisController.java
- com.vmware.osis.resource.OsisController
