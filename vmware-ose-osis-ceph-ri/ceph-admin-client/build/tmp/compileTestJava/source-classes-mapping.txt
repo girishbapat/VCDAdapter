@@ -1,0 +1,12 @@
+org/twonote/rgwadmin4j/examples/SwiftExample.java
+ org.twonote.rgwadmin4j.examples.SwiftExample
+org/twonote/rgwadmin4j/model/CapTest.java
+ org.twonote.rgwadmin4j.model.CapTest
+org/twonote/rgwadmin4j/impl/BaseTest.java
+ org.twonote.rgwadmin4j.impl.BaseTest
+org/twonote/rgwadmin4j/impl/RgwAdminImplTest.java
+ org.twonote.rgwadmin4j.impl.RgwAdminImplTest
+org/twonote/rgwadmin4j/examples/SubUserExample.java
+ org.twonote.rgwadmin4j.examples.SubUserExample
+org/twonote/rgwadmin4j/examples/Example.java
+ org.twonote.rgwadmin4j.examples.Example

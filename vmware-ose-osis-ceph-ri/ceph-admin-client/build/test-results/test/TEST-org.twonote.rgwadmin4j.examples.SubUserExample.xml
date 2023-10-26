@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.twonote.rgwadmin4j.examples.SubUserExample" tests="3" skipped="3" failures="0" errors="0" timestamp="2023-10-07T04:29:40" hostname="PUMA-X4584-WL" time="0.001">
+  <properties/>
+  <testcase name="subUserWithSwiftCredentialIncorporated" classname="org.twonote.rgwadmin4j.examples.SubUserExample" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="subuserWithS3CredentialIncorporated" classname="org.twonote.rgwadmin4j.examples.SubUserExample" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="subuserWithSwiftCredentialPermission" classname="org.twonote.rgwadmin4j.examples.SubUserExample" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

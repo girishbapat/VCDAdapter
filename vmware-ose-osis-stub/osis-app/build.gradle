@@ -1,0 +1,11 @@
+dependencies {
+    implementation project(':osis-core')
+    implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.11.0'
+    implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.11.0'
+    implementation 'io.springfox:springfox-swagger2:2.10.0'
+    implementation 'io.springfox:springfox-swagger-ui:2.10.0'
+    implementation 'javax.xml.bind:jaxb-api:2.2.11'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8'
+    implementation 'org.openapitools:jackson-databind-nullable:0.1.0'
+}
+jar.enabled(true)

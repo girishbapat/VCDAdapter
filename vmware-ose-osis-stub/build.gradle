@@ -1,0 +1,103 @@
+buildscript {
+    ext {
+        //springBootVersion = '2.2.4.RELEASE'
+        springBootVersion = '2.7.16'
+        javaVersion = '1.8'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven {
+            url = 'https://repo.maven.apache.org/maven2'
+            allowInsecureProtocol true
+        }
+    }
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+apply plugin: 'idea'
+
+bootJar {
+    mainClass = 'com.vmware.osis.Application'
+    enabled = true
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.vmware.osis.Application'
+    }
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    duplicatesStrategy = 'exclude'
+}
+
+subprojects {
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["$projectDir/src/main/resources"]
+        }
+    }
+}
+
+dependencies {
+    implementation project('osis-app')
+}
+
+configure(allprojects.findAll { it.name != 'platform-admin-client' }) {
+    ext {
+        springBootVersion = '2.7.16'
+    }
+    dependencies {
+        implementation "org.springframework.boot:spring-boot-starter-webflux:$springBootVersion"
+        implementation "org.springframework.boot:spring-boot-starter-hateoas:$springBootVersion"
+        implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
+        implementation "org.springframework.boot:spring-boot-starter-security:$springBootVersion"
+        testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion") {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+        implementation 'io.springfox:springfox-swagger2:2.10.0'
+        implementation 'io.springfox:springfox-swagger-ui:2.10.0'
+        implementation 'javax.xml.bind:jaxb-api:2.2.11'
+        implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8'
+        implementation 'org.openapitools:jackson-databind-nullable:0.1.0'
+        implementation 'javax.validation:validation-api:2.0.1.Final'
+        implementation 'org.hsqldb:hsqldb:2.7.1'
+        implementation 'org.postgresql:postgresql:42.3.3'
+        implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.11.0'
+        implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.11.0'
+        implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+        implementation 'io.jsonwebtoken:jjwt:0.9.1'
+        implementation 'org.springframework.plugin:spring-plugin-core:1.2.0.RELEASE'
+        testImplementation group: 'junit', name: 'junit', version: '4.12'
+    }
+}
+
+group = 'com.vmware.osis'
+version = '1.0.0'
+description = 'osis.platform'
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

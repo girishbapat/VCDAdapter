@@ -1,0 +1,42 @@
+osis:
+  platform:
+    name:
+    region:
+    storage-classes:
+    version:
+    admin:
+      endpoint: http://localhost:3001/api/v1
+      username:
+      password:
+    s3:
+      endpoint:
+      access-key:
+      secret-key:
+    console:
+      endpoint:
+  api:
+    version: 1.0.0
+
+server:
+  port: 8080 # Change the port to a non-HTTPS port, such as 8080
+  #verbose: true
+#security.jwt.enabled
+
+#security:
+ # require-ssl: false # Set require-ssl to false to disable SSL requirement
+
+# Remove the SSL configuration
+# ssl:
+#   key-store:
+#   key-store-password:
+#   key-store-type:
+#   key-alias:
+
+# Remove the JWT configuration if not needed
+# security:
+#   jwt:
+#     enabled: false
+#     access-token-expiration-time: 15
+#     refresh_token_expiration_time: 262800
+#     token-issuer: http://platform.osis.ose.vmware.com
+#     token-signing-key: thisisosis
